@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 
-	QTextCodec::setCodecForTr(QTextCodec::codecForName("CP1251"));
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("CP1251"));
 
 	MainWindow w;
 	w.show();

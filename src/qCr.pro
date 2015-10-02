@@ -10,7 +10,7 @@ TARGET = qCr
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
+SOURCES += main.cpp \
         mainwindow.cpp \
     glwidget.cpp \
     Game.cpp \
