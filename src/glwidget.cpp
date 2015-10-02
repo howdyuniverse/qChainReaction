@@ -60,7 +60,7 @@ void GLWidget::drawTextInfo()
     t = t + "  |  Всього: " + QString::number( CRgame.retTotal() );
 
     glColor3ub(255, 255, 255);
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("Windows-1251"));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     renderText( 10, 17, t, QFont("Verdana", 10) );
 
     if( CRgame.retGameStatus() == 1 ) {
