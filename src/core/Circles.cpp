@@ -69,32 +69,48 @@ void Circles::moveCircles()
 // Проверяем пересечения
 void Circles::checkIntersection()
 {
-    if( cursor->circle.getActive() )        // Условие выполняется только один раз - при нажатии
-        cursor->circle.deactivate();    // Начинаем цепную рекцию с курсора - он у нас первый элемент в списке
-    
-    for (Node *a = head->next; a; a = a->next)
+    // Условие выполняется только один раз - при нажатии
+    // Начинаем цепную рекцию с курсора - он у нас первый элемент в списке
+    if( cursor->circle.getActive() )
+        cursor->circle.deactivate();
 
-        if( !a->circle.getActive() && !a->circle.getDisable() ) // Если круг не жив и еще активен
-            for (Node *b = head->next; b; b = b->next)          // проверяем пересечение с остальными
+    for (Node *aCircle = head->next; aCircle; aCircle = aCircle->next)
+
+        // Если круг не жив и еще активен
+        if( !aCircle->circle.getActive() && !aCircle->circle.getDisable() )
+            // проверяем пересечение с остальными
+            for (Node *bCircle = head->next; bCircle; bCircle = bCircle->next)
 
                 // Если проверяемый круг еще жив проверяем пересечение
-                if( b->circle.getActive() )
+                if( bCircle->circle.getActive() ) {
+                    float a_x = aCircle->circle.getX();
+                    float a_y = aCircle->circle.getY();
+                    float a_r =  aCircle->circle.getR();
+
+                    float b_x = bCircle->circle.getX();
+                    float b_y = bCircle->circle.getY();
+                    float b_r = bCircle->circle.getR();
 
                     //Формула проверки пересечения двух окуржностей
                     // V(x1 - x2)^2 + (y1 - y2)^2 <=  r1 + r2
-                    if (sqrt( pow(( b->circle.getX() - a->circle.getX() ), 2) + pow(( b->circle.getY() - a->circle.getY() ), 2) ) <= a->circle.getR() + b->circle.getR() )
+                    float dist = sqrt( pow(( b_x - a_x ), 2) + pow(( b_y - a_y ), 2) );
+
+                    if (dist <= a_r + b_r )
                     {
-                        hits++;     // Добавляем очки за попадание
-                        b->circle.deactivate(); // Если попадает останавливаем круг
+                        // Добавляем очки за попадание
+                        hits++;
+                        // Если попадает останавливаем круг
+                        bCircle->circle.deactivate();
                     }
+                }
 }
 
 bool Circles::checkEndLevel()
 {
-    for(Node *a = head->next; a; a = a->next)
+    for(Node *aCircle = head->next; aCircle; aCircle = aCircle->next)
 
         // Если находим хоть одно промежуточное состояние возвращаем false
-        if( !a->circle.getActive() && !a->circle.getDisable() )
+        if( !aCircle->circle.getActive() && !aCircle->circle.getDisable() )
             return false;
 
     // Если цикл не нашел промежуточных состояний, ф-я возвращает сигнал об окночании уровня
