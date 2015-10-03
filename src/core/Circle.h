@@ -1,7 +1,7 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-#include "Drawing.h"
+#include "core/Drawing.h"
 
 class Circle {
     float x;    // Положение центра круга в окне

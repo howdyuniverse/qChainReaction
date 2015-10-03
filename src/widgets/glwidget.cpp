@@ -1,8 +1,9 @@
-#include "glwidget.h"
 #include <QtOpenGL>
 #include <QtGui>
-
 #include <QTextCodec>
+
+#include "widgets/glwidget.h"
+
 
 GLWidget::GLWidget(QWidget *parent) :  QGLWidget(parent)
 {

@@ -1,10 +1,12 @@
-#include "Game.h"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
 
+#include "core/Game.h"
+
 using namespace std;
+
 
 Game::Game():level(1), score(0), total(0), recordIndex(-1), status(0), mode(1)
 {

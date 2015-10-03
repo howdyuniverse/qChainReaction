@@ -1,7 +1,8 @@
 #ifndef CIRCLES_H
 #define CIRCLES_H
 
-#include "Circle.h"
+#include "core/Circle.h"
+
 class Drawing;
 
 struct Node

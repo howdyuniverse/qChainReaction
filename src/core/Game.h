@@ -1,8 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Circle.h"
-#include "Circles.h"
+#include "core/Circle.h"
+#include "core/Circles.h"
+
 class Drawing;
 
 class Game {

@@ -1,9 +1,9 @@
 #include <QtGui>
 #include <QtOpenGL>
 
-#include "mainwindow.h"
-#include "glwidget.h"
-#include "recordsdialog.h"
+#include "widgets/mainwindow.h"
+#include "widgets/glwidget.h"
+#include "widgets/recordsdialog.h"
 
 
 MainWindow::MainWindow()

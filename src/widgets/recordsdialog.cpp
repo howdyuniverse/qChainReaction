@@ -1,7 +1,8 @@
 #include <QtGui>
 #include <QColor>
 
-#include "recordsdialog.h"
+#include "widgets/recordsdialog.h"
+
 
 RecordsDialog::RecordsDialog(int *rec, QWidget *parent)
         : QDialog(parent)

@@ -1,8 +1,9 @@
-#include "Drawing.h"
-
 #include <QtOpenGL>
 #include <cmath>
 #include <QGLWidget>
+
+#include "core/Drawing.h"
+
 
 Drawing::Drawing()
 {
